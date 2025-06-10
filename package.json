@@ -7,10 +7,12 @@
   "scripts": {
     "pristine": "npm run clean ; rm -fr cdk.out node_modules",
     "clean": "rm -fr dist/",
-    "prebuild": "npm run clean",
+    "prebuild": "npm run pristine ; npm install",
     "build": "tsc",
     "watch": "tsc -w",
     "test": "jest",
+    "prerelease": "npm run build",
+    "release": "npm run cdk deploy",
     "cdk": "cdk"
   },
   "devDependencies": {
